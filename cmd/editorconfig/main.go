@@ -25,7 +25,7 @@ indent_style = tab
 
 [{*.txt,*.md,*.mkdn,*.mdown,*.markdown}]
 max_line_length = 0
-trim_trailing_whitespace
+trim_trailing_whitespace = false
 `)
 	ioutil.WriteFile(".editorconfig", source, 0666)
 }
