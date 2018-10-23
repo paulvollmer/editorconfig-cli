@@ -12,3 +12,4 @@
 *.out
 
 /cmd/editorconfig/editorconfig
+/cmd/editorconfig/.editorconfig

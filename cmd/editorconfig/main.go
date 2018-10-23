@@ -1,10 +1,22 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"io/ioutil"
+	"os"
 )
 
+const version = "0.1.0"
+
 func main() {
+	flagVersion := flag.Bool("v", false, "print the version and exit")
+	flag.Parse()
+	if *flagVersion {
+		fmt.Printf("v%s\n", version)
+		os.Exit(0)
+	}
+
 	source := []byte(`# EditorConfig helps developers define and maintain consistent
 # coding styles between different editors and IDEs
 # http://editorconfig.org
