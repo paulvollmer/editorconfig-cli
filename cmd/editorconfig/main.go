@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-const version = "0.1.0"
+const version = "0.1.1"
 
 func main() {
 	flagVersion := flag.Bool("v", false, "print the version and exit")
@@ -32,7 +32,7 @@ max_line_length = 120
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[{Makefile,**.mk}]
+[{Makefile,*.mk}]
 indent_style = tab
 
 [{*.txt,*.md,*.mkdn,*.mdown,*.markdown}]
