@@ -21,7 +21,7 @@ jobs:
     - name: Build
       run: cd cmd/editorconfig && go build -v
     
-    - name: Run GoReleaser
+    - name: Build Release
       uses: goreleaser/goreleaser-action@v2
       if: startsWith(github.ref, 'refs/tags/')
       with:
