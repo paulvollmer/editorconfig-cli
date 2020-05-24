@@ -1,0 +1,29 @@
+project_name: editorconfig-cli
+release:
+  github:
+    owner: paulvollmer
+    name: editorconfig-cli
+brew:
+  install: bin.install "editorconfig-cli"
+builds:
+- goos:
+  - linux
+  - darwin
+  - windows
+  goarch:
+  - amd64
+  - "386"
+  goarm:
+  - "6"
+  main: cmd/editorconfig
+  ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
+  binary: editorconfig-cli
+archive:
+  format: tar.gz
+  name_template: '{{ .Binary }}_{{.Version}}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{
+    .Arm }}{{ end }}'
+  files:
+  - LICENSE
+  - README.md
+snapshot:
+  name_template: SNAPSHOT-{{ .Commit }}
