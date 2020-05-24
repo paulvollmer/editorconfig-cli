@@ -1,4 +1,4 @@
-# editorconfig-cli
+# editorconfig-cli ![CI](https://github.com/paulvollmer/editorconfig-cli/workflows/CI/badge.svg)
 
 Simple commandline tool to create a `.editorconfig` file at the current working directory.
 
