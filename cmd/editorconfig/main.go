@@ -7,7 +7,11 @@ import (
 	"os"
 )
 
-const version = "0.1.2"
+var (
+	version = "0.1.2"
+	commit  = ""
+	date    = ""
+)
 
 func main() {
 	flagVersion := flag.Bool("v", false, "print the version and exit")
@@ -19,7 +23,7 @@ func main() {
 	}
 	flag.Parse()
 	if *flagVersion {
-		fmt.Printf("v%s\n", version)
+		fmt.Printf("v%s built at %s commit %s\n", version, date, commit)
 		os.Exit(0)
 	}
 
