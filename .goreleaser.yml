@@ -1,29 +1,32 @@
+before:
+  hooks:
+    - go mod download
 project_name: editorconfig-cli
 release:
   github:
     owner: paulvollmer
     name: editorconfig-cli
 builds:
-- goos:
-    - linux
-    - darwin
-    - windows
-  goarch:
-    - amd64
-    - "386"
-  goarm:
-    - "6"
-  env:
+  - env:
     - GO111MODULE=on
-  main: ./cmd/editorconfig
-  ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
-  binary: editorconfig
-archive:
-  format: tar.gz
-  name_template: '{{ .Binary }}_{{.Version}}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{
-    .Arm }}{{ end }}'
-  files:
-  - LICENSE
-  - README.md
+    - CGO_ENABLED=0
+    main: ./cmd/editorconfig
+    ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
+    binary: editorconfig
+archives:
+- replacements:
+    darwin: Darwin
+    linux: Linux
+    windows: Windows
+    386: i386
+    amd64: x86_64
+checksum:
+  name_template: 'checksums.txt'
 snapshot:
-  name_template: SNAPSHOT-{{ .Commit }}
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
