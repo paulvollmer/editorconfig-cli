@@ -3,21 +3,21 @@ release:
   github:
     owner: paulvollmer
     name: editorconfig-cli
-brew:
-  install: bin.install "editorconfig-cli"
 builds:
 - goos:
-  - linux
-  - darwin
-  - windows
+    - linux
+    - darwin
+    - windows
   goarch:
-  - amd64
-  - "386"
+    - amd64
+    - "386"
   goarm:
-  - "6"
-  main: cmd/editorconfig
+    - "6"
+  env:
+    - GO111MODULE=on
+  main: ./cmd/editorconfig
   ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
-  binary: editorconfig-cli
+  binary: editorconfig
 archive:
   format: tar.gz
   name_template: '{{ .Binary }}_{{.Version}}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{

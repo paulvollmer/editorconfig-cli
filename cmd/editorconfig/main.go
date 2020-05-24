@@ -23,7 +23,7 @@ func main() {
 	}
 	flag.Parse()
 	if *flagVersion {
-		fmt.Printf("v%s built at %s commit %s\n", version, date, commit)
+		fmt.Printf("editorconfig %s built at %s commit %s\n", version, date, commit)
 		os.Exit(0)
 	}
 
