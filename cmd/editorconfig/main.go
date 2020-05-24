@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	version = "0.1.2"
+	version = "dev"
 	commit  = ""
 	date    = ""
 )
@@ -60,7 +60,7 @@ trim_trailing_whitespace = false
 	if len(flagArgs) > 0 {
 		filename = flagArgs[0]
 	}
-	err := ioutil.WriteFile(filename, source, 0666)
+	err := ioutil.WriteFile(filename, source, 0644)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
